@@ -29,8 +29,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE
     -mcpu=cortex-m4
     -mthumb
     -Wall
-    -ffunction-sections
-	-fdata-sections
+    -g0
 )
 
 # Target link options
@@ -38,14 +37,17 @@ target_link_options(${PROJECT_NAME} PRIVATE
     -mcpu=cortex-m4
     -mthumb
     -T${CMAKE_CURRENT_SOURCE_DIR}/linker_script.ld
-    -nostdlib
     -Wl,-Map=blink.map
     -Wl,--gc-sections
+    -static
+    --specs=nano.specs
+    -nostartfiles
+    -Wl,--strip-all
 )
 
 # simple "flash" phony target
 add_custom_target(flash
   COMMAND openocd -f interface/stlink.cfg -f target/stm32f4x.cfg -c "program blink.elf verify reset exit"
-  DEPENDS "${CMAKE_PROJECT_NAME}"                 # ensure blink is built first
+  DEPENDS "${CMAKE_PROJECT_NAME}"
   WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
 )

@@ -1,25 +1,34 @@
+#include <stdio.h>
 #include <stdint.h>
+#include <sys/stat.h>
+#include <errno.h>
 #include "stm32f4xx.h"
 
-#define LED_PIN 5
+
+void usart_init(void);
+void usart_wait_for_flag(uint32_t mask, bool flag);
+void usart_send(const uint8_t* data, uint8_t size);
+
+int _isatty(int fd);
+int _write(int fd, char* ptr, int len);
+int _close(int fd);
+int _lseek(int fd, int ptr, int dir);
+int _fstat(int fd, struct stat* st);
+int _read(int fd, char* ptr, int len);
+void* _sbrk(ptrdiff_t incr);
 
 void main(void){
   
-  // enable GPIOA clock.
-  RCC->AHB1ENR |= (1 << RCC_AHB1ENR_GPIOAEN_Pos);
+  usart_init();
 
-  // ensure the clock is really stable before accessing the peripheral registers.
-  volatile uint32_t dummy;
-  dummy = RCC->AHB1ENR;
-  dummy = RCC->AHB1ENR;
+  // disable I/O buffering for STDOUT stream
+  setvbuf(stdout, NULL, _IONBF, 0);
 
-  // configure PA5 as output.
-  GPIOA->MODER |= (1 << GPIO_MODER_MODER5_Pos)
-
-  // toggle PA5 in an infinite loop with a delay.
-  while(1)
+  uint count = 0;
+  while (1)
   {
-    GPIOA->ODR ^= (1 << LED_PIN);    
-    for (uint32_t i = 0; i < 1000000; i++);
+    for (uint32_t i = 0; i < 2000000; i++);
+    printf(" %d", count);
+    count++;
   }
 }

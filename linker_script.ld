@@ -19,6 +19,8 @@ SECTIONS
 
 		*(.text)
 		*(.rodata)
+		*(.ARM.exidx)
+		*(.rodata.str1.4)
 
 		. = ALIGN(4);
 		_etext = .;
