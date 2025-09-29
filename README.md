@@ -1,5 +1,5 @@
 # STM32F446RE-PROJECT
-in this branch, i implemented the simples form of retargeting standard output, to send debugging informations to the terminal through UART protocol.
+in this branch, i implemented the simplest form of retargeting standard output, to send debugging informations to the terminal through UART protocol.
 
 ## Requirements  
 - Linux OS
