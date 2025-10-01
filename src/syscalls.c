@@ -13,7 +13,6 @@ void usart_send(const uint8_t* data, uint8_t size);
 
 int _isatty(int fd) {
 
-  usart_send((uint8_t*)"_isatty has been called !\r\n", 27);
   if (fd >= STDIN_FILENO && fd <= STDERR_FILENO)
     return 1;
 
