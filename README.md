@@ -1,5 +1,5 @@
 # STM32F446RE-PROJECTS
-A bunch of stm32f4 dev board projects without using the CubeIDE, the first project will be blinking LED, more coming soon ... 
+In this branch, i implemented the simplest form of memory-to-peripheral (USART2) DMA, to transfer a message to the terminal through UART protocol.
 
 ## Requirements  
 - Linux OS
@@ -11,11 +11,12 @@ A bunch of stm32f4 dev board projects without using the CubeIDE, the first proje
 ```bash
 git clone https://github.com/W4ZM/STM32F446RE-PROJECTS.git
 cd STM32F446RE-PROJECTS
+git checkout DMA
 mkdir build && cd build
 cmake ..
 make
 ```
-## Flash the firmware  
+## Flash the firmware and connect
 ```bash
-make flash
+make flash && cu -l /dev/ttyACM0 -s 38400
 ```
