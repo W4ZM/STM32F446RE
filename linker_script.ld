@@ -17,8 +17,9 @@ SECTIONS
 	{
 		. = ALIGN(4);
 
-		*(.text)
-		*(.rodata)
+		*(.text*)
+		*(.rodata*)
+		*(.ARM.exidx)
 
 		. = ALIGN(4);
 		_etext = .;
@@ -29,7 +30,7 @@ SECTIONS
 		. = ALIGN(4);
 		_sdata = .;
 
-		*(.data)
+		*(.data*)
 
 		. = ALIGN(4);
 		_edata = .;
@@ -40,7 +41,7 @@ SECTIONS
 		. = ALIGN(4);
 		_sbss = .;
 
-		*(.bss)
+		*(.bss*)
 
 		. = ALIGN(4);
 		_ebss = .;
