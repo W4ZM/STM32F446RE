@@ -11,7 +11,7 @@ in this branch, i implemented the simplest form of retargeting standard output, 
 ```bash
 git clone https://github.com/W4ZM/STM32F446RE-PROJECTS.git
 cd STM32F446RE-PROJECTS
-git checkout UART-debugging
+git checkout UART
 mkdir build && cd build
 cmake ..
 make
