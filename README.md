@@ -1,5 +1,5 @@
 # STM32F446RE-PROJECTS
-In this branch, i implemented the simplest form of memory-to-peripheral (USART2) DMA, to transfer a message to the terminal through UART protocol.
+In this branch, i used advanced-control timer (TIM1) along with DMA2 controller to toggle on/off LD2 without the intervention of the CPU. 
 
 ## Requirements  
 - Linux OS
@@ -11,12 +11,12 @@ In this branch, i implemented the simplest form of memory-to-peripheral (USART2)
 ```bash
 git clone https://github.com/W4ZM/STM32F446RE-PROJECTS.git
 cd STM32F446RE-PROJECTS
-git checkout DMA
+git checkout TIMER-DMA
 mkdir build && cd build
 cmake ..
 make
 ```
-## Flash the firmware and connect
+## Flash the firmware
 ```bash
-make flash && cu -l /dev/ttyACM0 -s 38400
+make flash
 ```
