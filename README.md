@@ -1,5 +1,5 @@
-# STM32F446RE-PROJECTS
-A bunch of stm32f4 dev board projects without using the CubeIDE, the first project will be blinking LED, more projects will be added as branches to this one.
+# STM32F446RE
+Simple examples without using the CubeIDE, this branch is for blinking LD2, check other branches for more examples.
 
 ## Requirements  
 - Linux OS
